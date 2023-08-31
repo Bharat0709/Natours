@@ -13,6 +13,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const path = require('path');
 const hpp = require('hpp');
+const compression = require('compression');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -21,12 +22,12 @@ const rateLimit = require('express-rate-limit');
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
-
 app.use(express.static('public'));
 app.use(cookieParser());
 app.use(helmet());
 app.use(mongoSanitize());
 app.use(xss());
+app.use(compression());
 app.use(
   hpp({
     whitelist: [

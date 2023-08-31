@@ -29,7 +29,6 @@ if (userDataForm)
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').files[0]);
-    console.log(form);
     await updateSettings(form, 'data');
   });
 
@@ -60,7 +59,6 @@ if (Signupform) {
     const passwordConfirm = Signupform.elements['passwordConfirm'].value;
     const name = Signupform.elements['name'].value;
     e.preventDefault();
-    console.log(email, password, passwordConfirm, name);
     await signUp(name, email, password, passwordConfirm);
   });
 }
