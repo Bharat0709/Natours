@@ -8,7 +8,7 @@ const viewRouter = require('./routes/viewRoutes');
 
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
-// const helmet = require('helmet');
+const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 // const xss = require('xss-clean');
 const path = require('path');
@@ -24,9 +24,9 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static('public'));
 app.use(cookieParser());
-// app.use(helmet());
+app.use(helmet());
 app.use(mongoSanitize());
-app.use(xss());
+// app.use(xss());
 app.use(compression());
 app.use(
   hpp({

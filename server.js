@@ -1,4 +1,4 @@
-//  ADDING APP FROMM THE APP SECTION TO ENABLE EXPRESS AND ALLL THE MIDDLEWARES BEFORE EXCUTING ANY QUERY 
+  //  ADDING APP FROMM THE APP SECTION TO ENABLE EXPRESS AND ALLL THE MIDDLEWARES BEFORE EXCUTING ANY QUERY
 
 const app = require('./app');
 
@@ -17,7 +17,6 @@ const DB = process.env.DATABASE.replace(
   process.env.DATABASE_PASSWORD,
 );
 
-
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
@@ -28,7 +27,6 @@ mongoose
   .then(() => {
     console.log('DB Connection Established!!');
   });
-
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
@@ -41,4 +39,3 @@ process.on('unhandledRejection', (err) => {
     process.exit(1);
   });
 });
-
